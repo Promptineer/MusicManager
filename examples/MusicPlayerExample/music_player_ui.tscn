@@ -1,0 +1,474 @@
+[gd_scene load_steps=9 format=3 uid="uid://drechqvonbtl8"]
+
+[ext_resource type="Script" path="res://examples/MusicPlayerExample/music_player_ui.gd" id="1_ere1k"]
+[ext_resource type="Resource" uid="uid://c5kpryq675rnf" path="res://examples/MusicPlayerExample/playlists/Funk.tres" id="2_bf2hq"]
+[ext_resource type="Resource" uid="uid://d1ewvo6555ap" path="res://examples/MusicPlayerExample/playlists/PixelLand.tres" id="3_cvy4d"]
+[ext_resource type="Resource" uid="uid://bjc0kj4y4i1eh" path="res://examples/MusicPlayerExample/playlists/Pop.tres" id="4_5kaqa"]
+
+[sub_resource type="Animation" id="Animation_2hr4o"]
+resource_name = "PLAYING"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.352941), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ctags"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_6kcii"]
+resource_name = "SONG_CHANGED"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_maj31"]
+_data = {
+"PLAYING": SubResource("Animation_2hr4o"),
+"RESET": SubResource("Animation_ctags"),
+"SONG_CHANGED": SubResource("Animation_6kcii")
+}
+
+[node name="MusicPlayerUI" type="CanvasLayer"]
+script = ExtResource("1_ere1k")
+playlists = Array[Resource("res://addons/MusicManager/music_playlist.gd")]([ExtResource("2_bf2hq"), ExtResource("3_cvy4d"), ExtResource("4_5kaqa")])
+
+[node name="MainPanel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxMain" type="VBoxContainer" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginTop" type="MarginContainer" parent="MainPanel/VBoxMain"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxTopBar" type="HBoxContainer" parent="MainPanel/VBoxMain"]
+layout_mode = 2
+
+[node name="MarginLeft" type="MarginContainer" parent="MainPanel/VBoxMain/HBoxTopBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 518
+
+[node name="TopLabel" type="Label" parent="MainPanel/VBoxMain/HBoxTopBar"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music Player"
+
+[node name="MarginRight" type="MarginContainer" parent="MainPanel/VBoxMain/HBoxTopBar"]
+layout_mode = 2
+theme_override_constants/margin_right = 525
+
+[node name="MarginBottom" type="MarginContainer" parent="MainPanel/VBoxMain"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="TabContainer" type="TabContainer" parent="MainPanel/VBoxMain"]
+layout_mode = 2
+tab_alignment = 1
+
+[node name="All Songs" type="Control" parent="MainPanel/VBoxMain/TabContainer"]
+layout_mode = 2
+
+[node name="AllSongsList" type="ItemList" parent="MainPanel/VBoxMain/TabContainer/All Songs"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+allow_search = false
+same_column_width = true
+
+[node name="Playlists" type="Control" parent="MainPanel/VBoxMain/TabContainer"]
+visible = false
+custom_minimum_size = Vector2(1152, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/VBoxMain/TabContainer/Playlists"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginTop" type="MarginContainer" parent="MainPanel/VBoxMain/TabContainer/Playlists/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 400
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainPanel/VBoxMain/TabContainer/Playlists/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MainPanel/VBoxMain/TabContainer/Playlists/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Current Playlist: "
+
+[node name="PlaylistOptions" type="OptionButton" parent="MainPanel/VBoxMain/TabContainer/Playlists/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 1
+selected = 0
+popup/item_0/text = ""
+popup/item_0/id = 0
+
+[node name="MarginBottom" type="MarginContainer" parent="MainPanel/VBoxMain/TabContainer/Playlists/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="ActivePlaylist" type="ItemList" parent="MainPanel/VBoxMain/TabContainer/Playlists/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 317)
+layout_mode = 2
+allow_search = false
+same_column_width = true
+
+[node name="Settings" type="Control" parent="MainPanel/VBoxMain/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/VBoxMain/TabContainer/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="MarginTop" type="MarginContainer" parent="MainPanel/VBoxMain/TabContainer/Settings/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 99
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainPanel/VBoxMain/TabContainer/Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="MarginLeft" type="MarginContainer" parent="MainPanel/VBoxMain/TabContainer/Settings/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 385
+
+[node name="CrossfadeButton" type="CheckButton" parent="MainPanel/VBoxMain/TabContainer/Settings/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Crossfade songs"
+
+[node name="VSeparator" type="VSeparator" parent="MainPanel/VBoxMain/TabContainer/Settings/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="FadeTimeLabel" type="Label" parent="MainPanel/VBoxMain/TabContainer/Settings/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Fade time:"
+
+[node name="FadeTimeBox" type="SpinBox" parent="MainPanel/VBoxMain/TabContainer/Settings/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+min_value = 0.5
+max_value = 4.0
+step = 0.1
+value = 1.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainPanel/VBoxMain/TabContainer/Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="MarginLeft" type="MarginContainer" parent="MainPanel/VBoxMain/TabContainer/Settings/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 385
+
+[node name="NowPlayingButton" type="CheckButton" parent="MainPanel/VBoxMain/TabContainer/Settings/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+button_pressed = true
+text = "Now playing"
+
+[node name="MarginBottom2" type="MarginContainer" parent="MainPanel/VBoxMain"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 380
+
+[node name="BottomPanel" type="Panel" parent="MainPanel/VBoxMain"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="PlayPauseButton" type="Button" parent="MainPanel/VBoxMain/BottomPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.25
+offset_top = -25.0
+offset_right = 51.25
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Play"
+theme_override_font_sizes/font_size = 28
+disabled = true
+text = "▷"
+
+[node name="NextButton" type="Button" parent="MainPanel/VBoxMain/BottomPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 65.0
+offset_top = -15.5
+offset_right = 96.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Next Song"
+disabled = true
+text = "▷|"
+
+[node name="PreviousButton" type="Button" parent="MainPanel/VBoxMain/BottomPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -15.5
+offset_right = -65.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Previous Song"
+disabled = true
+text = "|◁"
+
+[node name="ShuffleButton" type="CheckButton" parent="MainPanel/VBoxMain/BottomPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.0
+offset_top = -21.0
+offset_right = -146.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Shuffle"
+theme_override_font_sizes/font_size = 24
+text = "🔀"
+
+[node name="LoopSongButton" type="CheckButton" parent="MainPanel/VBoxMain/BottomPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 137.0
+offset_top = -30.0
+offset_right = 218.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Loop"
+theme_override_font_sizes/font_size = 24
+text = "🔁"
+
+[node name="VolumeSlider" type="HSlider" parent="MainPanel/VBoxMain/BottomPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 335.0
+offset_top = -8.0
+offset_right = 535.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Volume"
+max_value = 1.0
+step = 0.001
+
+[node name="SeekSlider" type="HSlider" parent="MainPanel/VBoxMain/BottomPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(369, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -68.0
+offset_right = 184.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SeekMaxLabel" type="Label" parent="MainPanel/VBoxMain/BottomPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 772.0
+offset_top = 13.0
+offset_right = 812.0
+offset_bottom = 36.0
+text = "0:00"
+
+[node name="SeekCurrentLabel" type="Label" parent="MainPanel/VBoxMain/BottomPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 346.0
+offset_top = 13.0
+offset_right = 386.0
+offset_bottom = 36.0
+text = "0:00"
+
+[node name="NowPlayingLabel" type="RichTextLabel" parent="MainPanel/VBoxMain/BottomPanel"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+offset_left = 20.0
+offset_top = 86.0
+offset_right = 280.0
+offset_bottom = 156.0
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0.270588, 0.137255, 0.384314, 1)
+theme_override_constants/shadow_outline_size = 12
+text = "Now playing: Test song"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainPanel/VBoxMain/BottomPanel/NowPlayingLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_maj31")
+}
+
+[connection signal="item_selected" from="MainPanel/VBoxMain/TabContainer/All Songs/AllSongsList" to="." method="_on_all_songs_list_item_selected"]
+[connection signal="item_selected" from="MainPanel/VBoxMain/TabContainer/Playlists/VBoxContainer/HBoxContainer/PlaylistOptions" to="." method="_on_playlist_options_item_selected"]
+[connection signal="item_selected" from="MainPanel/VBoxMain/TabContainer/Playlists/VBoxContainer/ActivePlaylist" to="." method="_on_active_playlist_item_selected"]
+[connection signal="toggled" from="MainPanel/VBoxMain/TabContainer/Settings/VBoxContainer/HBoxContainer/CrossfadeButton" to="." method="_on_crossfade_button_toggled"]
+[connection signal="value_changed" from="MainPanel/VBoxMain/TabContainer/Settings/VBoxContainer/HBoxContainer/FadeTimeBox" to="." method="_on_fade_time_box_value_changed"]
+[connection signal="toggled" from="MainPanel/VBoxMain/TabContainer/Settings/VBoxContainer/HBoxContainer2/NowPlayingButton" to="." method="_on_now_playing_button_toggled"]
+[connection signal="pressed" from="MainPanel/VBoxMain/BottomPanel/PlayPauseButton" to="." method="_on_play_pause_button_pressed"]
+[connection signal="pressed" from="MainPanel/VBoxMain/BottomPanel/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="MainPanel/VBoxMain/BottomPanel/PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="toggled" from="MainPanel/VBoxMain/BottomPanel/ShuffleButton" to="." method="_on_shuffle_button_toggled"]
+[connection signal="toggled" from="MainPanel/VBoxMain/BottomPanel/LoopSongButton" to="." method="_on_loop_song_button_toggled"]
+[connection signal="value_changed" from="MainPanel/VBoxMain/BottomPanel/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="drag_ended" from="MainPanel/VBoxMain/BottomPanel/SeekSlider" to="." method="_on_seek_slider_drag_ended"]
+[connection signal="drag_started" from="MainPanel/VBoxMain/BottomPanel/SeekSlider" to="." method="_on_seek_slider_drag_started"]
