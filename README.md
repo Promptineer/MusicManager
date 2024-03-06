@@ -34,36 +34,37 @@ The Music Manager addon is designed to be used primarily through signals. Once e
 ### Example Usage
 To create a song, simply create a new resource file that inherits MusicTrack.
 
+![Create new resource file](https://i.imgur.com/EoaUCJL.png)
 
+![Create new MusicTrack](https://i.imgur.com/DiV6t7K.png)
 
 Add the audio file, name, etc. in the Inspector to your new MusicTrack resource.
 
-
+![Edit MusicTrack](https://i.imgur.com/R5xcBsn.png)
 
 To create a playlist, it is essentially the same as making a song. Instead you will create a resource file that inherits MusicPlaylist.
 
+![Create new resource file](https://i.imgur.com/EoaUCJL.png)
 
+![Create new MusicPlaylist](https://i.imgur.com/05gfpQu.png)
 
 Add your MusicTrack files in the Inspector.
+
+![Edit MusicPlaylist](https://i.imgur.com/0ex2bi2.png)
 
 And now you can play your songs or playlists from any script in your code!
 
 ```gdscript
 # Play a song with crossfading
-var song = MusicTrack.new("res://song.res")
+var song = preload("res://new_track.res")
 MusicManager.play_song.emit(song, false, true, 1.0)
 
 # Play a playlist, looping and shuffling
-var playlist = MusicPlaylist.new([
-   MusicTrack.new("res://path/to/song1.ogg"),
-   MusicTrack.new("res://path/to/song2.ogg"),
-   MusicTrack.new("res://path/to/song3.ogg")
-])
+var playlist = preload("res://new_playlist.res")
 MusicManager.play_playlist.emit(playlist, true, true, false, 0.0)
-
-# Stop all music
-MusicManager.stop_music.emit()
 ```
+
+I wouldn't recommend declaring the variables this way, I would recommend using an `@export var`. You can find the MusicPlayerExample in the examples directory that will show you much more use-cases of what the add-on can do.
 
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
