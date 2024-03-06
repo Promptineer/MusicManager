@@ -52,7 +52,7 @@ Add your MusicTrack files in the Inspector.
 
 ![Edit MusicPlaylist](https://i.imgur.com/0ex2bi2.png)
 
-And now you can play your songs or playlists from any script in your code!
+And now you can play your songs or playlists from any script in your project!
 
 ```gdscript
 # Play a song with crossfading
