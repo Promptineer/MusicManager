@@ -66,5 +66,6 @@ MusicManager.play_playlist.emit(playlist, true, true, false, 0.0)
 
 I wouldn't recommend declaring the variables this way, I would recommend using an `@export var`. You can find the MusicPlayerExample in the examples directory that will show you much more use-cases of what the add-on can do.
 
-License
+## License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
