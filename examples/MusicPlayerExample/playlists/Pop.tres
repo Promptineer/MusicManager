@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MusicPlaylist" load_steps=5 format=3 uid="uid://bjc0kj4y4i1eh"]
+
+[ext_resource type="Script" path="res://addons/MusicManager/music_playlist.gd" id="1_tlhv2"]
+[ext_resource type="Resource" uid="uid://bbqdni7ehwh34" path="res://examples/MusicPlayerExample/songs/Basic-Implosion.tres" id="2_kd55h"]
+[ext_resource type="Resource" uid="uid://iyn4ghme2ous" path="res://examples/MusicPlayerExample/songs/Bummin-on_Tremelo.tres" id="3_3afn5"]
+[ext_resource type="Resource" uid="uid://bmsk1dyuv27bj" path="res://examples/MusicPlayerExample/songs/Werq.tres" id="4_1unl2"]
+
+[resource]
+script = ExtResource("1_tlhv2")
+name = "Pop"
+tracks = Array[Resource("res://addons/MusicManager/music_track.gd")]([ExtResource("2_kd55h"), ExtResource("3_3afn5"), ExtResource("4_1unl2")])

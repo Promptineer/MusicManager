@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MusicPlaylist" load_steps=5 format=3 uid="uid://c5kpryq675rnf"]
+
+[ext_resource type="Script" path="res://addons/MusicManager/music_playlist.gd" id="1_81y70"]
+[ext_resource type="Resource" uid="uid://dgrcuigcnpc4p" path="res://examples/MusicPlayerExample/songs/Chill-Wave.tres" id="2_sl5dr"]
+[ext_resource type="Resource" uid="uid://dcvlup7d1isxg" path="res://examples/MusicPlayerExample/songs/Loopster.tres" id="3_88tti"]
+[ext_resource type="Resource" uid="uid://pq38sew1kfd4" path="res://examples/MusicPlayerExample/songs/Shaving-Mirror.tres" id="4_vdmpk"]
+
+[resource]
+script = ExtResource("1_81y70")
+name = "Funk"
+tracks = Array[Resource("res://addons/MusicManager/music_track.gd")]([ExtResource("2_sl5dr"), ExtResource("3_88tti"), ExtResource("4_vdmpk")])

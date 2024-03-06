@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MusicPlaylist" load_steps=5 format=3 uid="uid://d1ewvo6555ap"]
+
+[ext_resource type="Script" path="res://addons/MusicManager/music_playlist.gd" id="1_dstpb"]
+[ext_resource type="Resource" uid="uid://cenxtw6bsb2ad" path="res://examples/MusicPlayerExample/songs/Danger-Storm.tres" id="2_tbu1l"]
+[ext_resource type="Resource" uid="uid://b2nqupg80c5jy" path="res://examples/MusicPlayerExample/songs/Level-Up.tres" id="3_4mygc"]
+[ext_resource type="Resource" uid="uid://d2jl8khpdjp40" path="res://examples/MusicPlayerExample/songs/Secrets-of-the-Schoolyard.tres" id="4_mn71j"]
+
+[resource]
+script = ExtResource("1_dstpb")
+name = "PixelLand"
+tracks = Array[Resource("res://addons/MusicManager/music_track.gd")]([ExtResource("2_tbu1l"), ExtResource("3_4mygc"), ExtResource("4_mn71j")])
