@@ -21,7 +21,7 @@ Music Manager is a powerful addon that allows you to easily manage and control m
 
 ## Usage
 
-The Music Manager addon is designed to be used primarily through signals. Once enabled, it acts as a singleton, allowing you to control music playback from anywhere in your project.
+The Music Manager addon is designed to be used primarily through signals. Once enabled, it acts as a singleton, allowing you to control music playback from anywhere in your project. Even when changing scenes.
 
 ### Signals
 
@@ -32,10 +32,25 @@ The Music Manager addon is designed to be used primarily through signals. Once e
 - `resume_music`: Resume paused music.
 
 ### Example Usage
+To create a song, simply create a new resource file that inherits MusicTrack.
+
+
+
+Add the audio file, name, etc. in the Inspector to your new MusicTrack resource.
+
+
+
+To create a playlist, it is essentially the same as making a song. Instead you will create a resource file that inherits MusicPlaylist.
+
+
+
+Add your MusicTrack files in the Inspector.
+
+And now you can play your songs or playlists from any script in your code!
 
 ```gdscript
 # Play a song with crossfading
-var song = MusicTrack.new("res://path/to/song.ogg")
+var song = MusicTrack.new("res://song.res")
 MusicManager.play_song.emit(song, false, true, 1.0)
 
 # Play a playlist, looping and shuffling
@@ -48,3 +63,7 @@ MusicManager.play_playlist.emit(playlist, true, true, false, 0.0)
 
 # Stop all music
 MusicManager.stop_music.emit()
+```
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
