@@ -69,3 +69,5 @@ I wouldn't recommend declaring the variables this way, I would recommend using a
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+Note: Specific licenses apply to .ogg files in the free examples. See examples/assets/LICENSE for details
