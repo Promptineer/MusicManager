@@ -15,7 +15,7 @@ Music Manager is a powerful addon that allows you to easily manage and control m
 
 ## Installation
 
-1. Clone or download the repository from [GitHub](https://github.com/Promptineer/MusicManager).
+1. Clone or download the repository. Or you can download an official release in the side-bar.
 2. Copy the `addons/music_manager` directory into your Godot project's `addons` directory.
 3. Enable the Music Manager addon in your Godot project by navigating to `Project > Project Settings > Plugins` and enabling the "Music Manager" plugin.
 
