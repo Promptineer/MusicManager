@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MusicTrack" load_steps=3 format=3 uid="uid://dcvlup7d1isxg"]
+
+[ext_resource type="Script" path="res://addons/MusicManager/music_track.gd" id="1_v6sf1"]
+[ext_resource type="AudioStream" uid="uid://hybcre5sv57t" path="res://examples/MusicPlayerExample/assets/Loopster.ogg" id="2_r3rjt"]
+
+[resource]
+script = ExtResource("1_v6sf1")
+name = "Loopster"
+artist = "Kevin MacLeod"
+track = ExtResource("2_r3rjt")

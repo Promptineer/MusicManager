@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MusicTrack" load_steps=3 format=3 uid="uid://bmsk1dyuv27bj"]
+
+[ext_resource type="Script" path="res://addons/MusicManager/music_track.gd" id="1_0s6n2"]
+[ext_resource type="AudioStream" uid="uid://cn3bmg2dkhuli" path="res://examples/MusicPlayerExample/assets/Werq.ogg" id="2_b4d2o"]
+
+[resource]
+script = ExtResource("1_0s6n2")
+name = "Werq"
+artist = "Kevin MacLeod"
+track = ExtResource("2_b4d2o")

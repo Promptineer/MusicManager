@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MusicTrack" load_steps=3 format=3 uid="uid://pq38sew1kfd4"]
+
+[ext_resource type="Script" path="res://addons/MusicManager/music_track.gd" id="1_5t8y8"]
+[ext_resource type="AudioStream" uid="uid://cax8n6gbljke5" path="res://examples/MusicPlayerExample/assets/Shaving-Mirror.ogg" id="2_ir7f6"]
+
+[resource]
+script = ExtResource("1_5t8y8")
+name = "Shaving Mirror"
+artist = "Kevin MacLeod"
+track = ExtResource("2_ir7f6")

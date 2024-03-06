@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MusicTrack" load_steps=3 format=3 uid="uid://dgrcuigcnpc4p"]
+
+[ext_resource type="Script" path="res://addons/MusicManager/music_track.gd" id="1_o2vxt"]
+[ext_resource type="AudioStream" uid="uid://bl5omlgc8he48" path="res://examples/MusicPlayerExample/assets/Chill-Wave.ogg" id="2_cxga3"]
+
+[resource]
+script = ExtResource("1_o2vxt")
+name = "Chill Wave"
+artist = "Kevin MacLeod"
+track = ExtResource("2_cxga3")

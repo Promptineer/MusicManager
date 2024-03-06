@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MusicTrack" load_steps=3 format=3 uid="uid://cenxtw6bsb2ad"]
+
+[ext_resource type="Script" path="res://addons/MusicManager/music_track.gd" id="1_g3gr1"]
+[ext_resource type="AudioStream" uid="uid://8xelrqjpb4ij" path="res://examples/MusicPlayerExample/assets/Danger-Storm.ogg" id="2_vqhbt"]
+
+[resource]
+script = ExtResource("1_g3gr1")
+name = "Danger Storm"
+artist = "Kevin MacLeod"
+track = ExtResource("2_vqhbt")

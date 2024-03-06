@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MusicTrack" load_steps=3 format=3 uid="uid://b2nqupg80c5jy"]
+
+[ext_resource type="Script" path="res://addons/MusicManager/music_track.gd" id="1_wkn5w"]
+[ext_resource type="AudioStream" uid="uid://cp01xb0ihxegw" path="res://examples/MusicPlayerExample/assets/Level-Up.ogg" id="2_qkyyp"]
+
+[resource]
+script = ExtResource("1_wkn5w")
+name = "Level Up"
+artist = "Kevin MacLeod"
+track = ExtResource("2_qkyyp")
