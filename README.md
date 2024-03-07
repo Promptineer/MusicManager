@@ -16,7 +16,7 @@ Music Manager is a powerful addon that allows you to easily manage and control m
 ## Installation
 
 1. Clone or download the repository. Or you can download an official release in the side-bar.
-2. Copy the `addons/music_manager` directory into your Godot project's `addons` directory.
+2. Copy the `addons/MusicManager` directory into your Godot project's `addons` directory.
 3. Enable the Music Manager addon in your Godot project by navigating to `Project > Project Settings > Plugins` and enabling the "Music Manager" plugin.
 
 ## Usage
@@ -70,4 +70,4 @@ I wouldn't recommend declaring the variables this way, I would recommend using a
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Note: Specific licenses apply to .ogg files in the free examples. See examples/assets/MusicPlayerExample/LICENSE for details
+Note: Specific licenses apply to .ogg files in the free examples. See examples/MusicPlayerExample/assets/LICENSE for details
